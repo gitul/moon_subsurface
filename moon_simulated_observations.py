@@ -190,7 +190,8 @@ def compute_antenna_temperature_v4(beam_file_no_extension, antenna_phi_angle):
 	FLOW  = 1
 	FHIGH = 120
 	
-	file_path = '/media/raul/SSD_RED_8TB/EDGES_vol2/subsurface/gobeams/try4/' + beam_file_no_extension + '.hdf5'
+	# file_path = '/media/raul/SSD_RED_8TB/EDGES_vol2/subsurface/gobeams/try4/' + beam_file_no_extension + '.hdf5'
+	file_path = '/media/raul/SSD_RED_8TB/EDGES_vol2/subsurface/gobeams/try5/beams/' + beam_file_no_extension + '.hdf5'
 	fr, theta, phi, gw, F_sky, sp, cf = mg.binned_gobeam(file_path, theta_step=1, antenna_phi_angle=antenna_phi_angle, weighted_average_pixels='yes')
 	
 	
@@ -320,7 +321,8 @@ def compute_antenna_temperature_v4(beam_file_no_extension, antenna_phi_angle):
 	# Save results to binary file
 	# ---------------------------
 
-	results_file        = '/media/raul/SSD_RED_8TB/EDGES_vol2/subsurface/observation_simulations/beams_gomoon/try4/sky_obs_' + beam_file_no_extension + '_' + str(int(antenna_phi_angle)) + 'deg.hdf5'
+	#results_file        = '/media/raul/SSD_RED_8TB/EDGES_vol2/subsurface/observation_simulations/beams_gomoon/try4/sky_obs_' + beam_file_no_extension + '_' + str(int(antenna_phi_angle)) + 'deg.hdf5'
+	results_file        = '/media/raul/SSD_RED_8TB/EDGES_vol2/subsurface/observation_simulations/beams_gomoon/try5/sky_obs_' + beam_file_no_extension + '_' + str(int(antenna_phi_angle)) + 'deg.hdf5'
 	with h5py.File(results_file, 'w') as hf:
 		hf.create_dataset('mjd',      data = mjd_out)
 		hf.create_dataset('freq',     data = freq_out)
